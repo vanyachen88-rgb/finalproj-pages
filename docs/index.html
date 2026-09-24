@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101c2b">
+  <meta name="description" content="Vanya 的資料分析專題作品集：Python ETL、資料驗證、Google Cloud SQL（SQL Server）與 Streamlit Dashboard。">
+  <title>Vanya Chen — 資料分析專題作品集</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="content.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <header class="site-header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#top" aria-label="回到首頁"><span class="brand-mark">V<span>.</span></span><span>VANYA / DATA WORK</span></a>
+      <nav aria-label="主要導覽"><a href="#explore">專題流程</a><a href="#outcomes">成果與應用</a><a href="#contact">聯絡</a></nav>
+      <a class="nav-link" href="https://github.com/vanyachen88-rgb/finalproj" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <!-- 修改首頁文字與主要連結 -->
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> DATA ANALYTICS / PORTFOLIO PROJECT</p>
+          <h1 id="hero-title">把分散的資料，<br>整理成<span class="accent">可行動的洞察。</span></h1>
+          <p class="hero-lede">以設備租賃情境的模擬資料，完成從 Python 資料生成、ETL 與驗證、關聯式資料庫，到 Streamlit 互動分析的完整流程。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">聯絡我 <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="https://vanyasproj.streamlit.app/" target="_blank" rel="noopener noreferrer">開啟 Dashboard <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hero-note">展示數據皆為模擬資料；可透過上方導覽探索專題流程與成果。</p>
+        </div>
+        <div class="hero-visual" aria-label="資料從產生到分析的流程摘要">
+          <div class="visual-top"><span>FINALPROJ / PIPELINE</span><span class="visual-live"><span></span> PROJECT OVERVIEW</span></div>
+          <div class="visual-center">
+            <div class="visual-heading"><small>從原始資料到決策介面</small><strong>一條可追蹤的資料路徑</strong></div>
+            <div class="flow-mini"><div><span>01</span> CSV / SOURCE</div><i></i><div><span>02</span> PYTHON ETL</div><i></i><div><span>03</span> CLOUD SQL</div><i></i><div class="final-flow"><span>04</span> STREAMLIT</div></div>
+          </div>
+          <div class="visual-bottom"><div><strong>08</strong><small>資料表</small></div><div><strong>39,693</strong><small>模擬資料列</small></div><div><strong>04</strong><small>分析分頁</small></div></div>
+        </div>
+      </div>
+      <!-- 修改首頁的四個專題數字 -->
+      <div class="shell metric-strip" aria-label="專題規模"><div><span>01 / DATASET</span><strong>4,000</strong><small>客戶資料</small></div><div><span>02 / LEADS</span><strong>12,000</strong><small>潛在客戶</small></div><div><span>03 / RENTALS</span><strong>3,500</strong><small>租賃紀錄</small></div><div><span>04 / REVENUE</span><strong>NT$ 43.65M</strong><small>模擬總營收</small></div></div>
+    </section>
+
+    <section class="explore-section section-pad" id="explore" aria-labelledby="explore-title">
+      <div class="shell">
+        <div class="section-heading"><div><p class="eyebrow dark">01 / EXPLORE THE WORK</p><h2 id="explore-title">從資料流到資料模型</h2></div><p>選擇流程階段或資料表，查看這個專題如何把原始紀錄轉為可分析的資料。</p></div>
+        <div class="explorer-grid">
+          <div class="explorer-card process-card">
+            <div class="card-heading"><span>INTERACTIVE PIPELINE</span><span>01 — 05</span></div>
+            <div class="stage-list" role="tablist" aria-label="專題流程階段" id="stage-tabs"></div>
+            <div class="stage-detail" id="stage-detail" role="tabpanel" tabindex="0" aria-live="polite"></div>
+          </div>
+          <div class="explorer-card schema-card">
+            <div class="card-heading"><span>DATA MODEL / ERD</span><span>8 TABLES</span></div>
+            <p class="schema-intro">點選資料表，查看筆數、代表欄位與關聯。線條表示概念上的資料關係；實際鍵值請以原始碼為準。</p>
+            <div class="schema-layout"><div class="table-list" id="table-list" aria-label="資料表清單"></div><div class="table-detail" id="table-detail" aria-live="polite"></div></div>
+            <div class="erd-frame">
+              <div class="erd-caption"><strong>ERD / 關聯示意</strong><span>1 → N 表示一對多；Dim_Date 為日期分析維度</span></div>
+              <svg class="erd-svg" viewBox="0 0 820 256" role="img" aria-labelledby="erd-title erd-desc">
+                <title id="erd-title">八張資料表的實體關聯圖</title>
+                <desc id="erd-desc">Marketing_Campaigns 和 Customers 連向 Leads；Customers 和 Machines 連向 Rentals；Machines 連向 Maintenance；Rentals 連向 Payments。Dim_Date 提供日期分析維度。</desc>
+                <g class="erd-lines" fill="none" stroke="#83afa5" stroke-width="1.6">
+                  <path d="M100 72 V128 H165"/><path d="M300 72 V108 H205 V128"/>
+                  <path d="M300 72 V108 H418 V128"/><path d="M500 72 V109 H457 V128"/>
+                  <path d="M500 72 V109 H672 V128"/><path d="M418 181 V201 H500"/>
+                </g>
+                <g class="erd-labels"><text x="119" y="119">1:N</text><text x="209" y="101">1:N</text><text x="366" y="101">1:N</text><text x="462" y="101">1:N</text><text x="605" y="101">1:N</text><text x="447" y="197">1:N</text></g>
+                <g class="erd-nodes">
+                  <rect x="12" y="24" width="176" height="48" rx="4"/><text x="100" y="53">Marketing_Campaigns</text>
+                  <rect x="220" y="24" width="160" height="48" rx="4"/><text x="300" y="53">Customers</text>
+                  <rect x="424" y="24" width="152" height="48" rx="4"/><text x="500" y="53">Machines</text>
+                  <rect x="635" y="24" width="150" height="48" rx="4"/><text x="710" y="53">Dim_Date</text>
+                  <rect x="112" y="128" width="106" height="53" rx="4"/><text x="165" y="160">Leads</text>
+                  <rect x="365" y="128" width="106" height="53" rx="4"/><text x="418" y="160">Rentals</text>
+                  <rect x="615" y="128" width="114" height="53" rx="4"/><text x="672" y="160">Maintenance</text>
+                  <rect x="447" y="201" width="106" height="48" rx="4"/><text x="500" y="230">Payments</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outcomes-section section-pad" id="outcomes" aria-labelledby="outcomes-title">
+      <div class="shell">
+        <div class="section-heading outcome-heading"><div><p class="eyebrow dark">02 / BUSINESS IMPACT</p><h2 id="outcomes-title">從指標走向商業問題</h2></div><p>依行銷、銷售與營運切換分析視角。下方數字為模擬資料的專題結果，不代表真實企業績效。</p></div>
+        <div class="outcome-workspace">
+          <div class="view-tabs" role="tablist" aria-label="分析領域" id="domain-tabs"></div>
+          <div class="domain-content" id="domain-content" role="tabpanel" tabindex="0" aria-live="polite"></div>
+        </div>
+        <div class="bottom-grid">
+          <div class="stack-panel"><div class="panel-label">TOOLS & TECHNOLOGIES</div><h3>讓資料可靠抵達儀表板。</h3><div class="stack-groups"><div><span>資料處理</span><strong>Python · Pandas · NumPy</strong></div><div><span>資料品質</span><strong>型別對應 · 缺值 · 重複值檢查</strong></div><div><span>儲存與查詢</span><strong>Google Cloud SQL · SQL Server · SQLAlchemy</strong></div><div><span>互動呈現</span><strong>Streamlit · Plotly · GitHub</strong></div></div></div>
+          <!-- 聯絡資訊可在此補上 Email 或 LinkedIn -->
+          <div class="contact-panel" id="contact"><div class="panel-label">LET'S CONNECT</div><h3>一起討論資料，<br>也討論下一個問題。</h3><p>Vanya Chen · 數位行銷與資料分析</p><div class="contact-actions"><a class="button primary light" href="https://github.com/vanyachen88-rgb/finalproj" target="_blank" rel="noopener noreferrer">查看專題程式碼 <span aria-hidden="true">↗</span></a><a class="text-link" href="https://vanyasproj.streamlit.app/" target="_blank" rel="noopener noreferrer">開啟 Dashboard ↗</a></div><p class="contact-footnote">聯絡信箱:vanyachen88@gmail.com</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-inner"><span>© <span id="year"></span> Vanya Chen</span><span>Built around a simulated data analytics project.</span><a href="#top">回到頂端 ↑</a></div></footer>
+</body>
+</html>
