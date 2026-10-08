@@ -4,8 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101c2b">
-  <meta name="description" content="Vanya 的資料分析專題作品集：Python ETL、資料驗證、Google Cloud SQL（SQL Server）與 Streamlit Dashboard。">
+  <meta name="description" content="Vanya 的資料分析專題作品集：Python ETL、資料驗證、Google Cloud SQL（SQL Server）、Streamlit Dashboard，以及行銷管道、營收、設備維修與客群的數據洞察（模擬資料）。">
   <title>Vanya Chen — 資料分析專題作品集</title>
+  <link rel="canonical" href="https://vanyachen88-rgb.github.io/finalproj-pages/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="Vanya Chen — 資料分析專題作品集">
+  <meta property="og:description" content="從 Python ETL、Cloud SQL 到 Streamlit Dashboard，並整理出行銷管道、營收成長、設備維修與客群的數據洞察（模擬資料）。">
+  <meta property="og:url" content="https://vanyachen88-rgb.github.io/finalproj-pages/">
   <link rel="stylesheet" href="styles.css">
   <script defer src="content.js"></script>
   <script defer src="script.js"></script>
@@ -15,8 +21,13 @@
   <header class="site-header">
     <div class="shell nav-wrap">
       <a class="brand" href="#top" aria-label="回到首頁"><span class="brand-mark">V<span>.</span></span><span>VANYA / DATA WORK</span></a>
-      <nav aria-label="主要導覽"><a href="#explore">專題流程</a><a href="#outcomes">成果與應用</a><a href="#contact">聯絡</a></nav>
-      <a class="nav-link" href="https://github.com/vanyachen88-rgb/finalproj" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="開啟選單"><span></span><span></span><span></span></button>
+      <nav id="site-nav" aria-label="主要導覽">
+        <a href="#explore">專題流程</a>
+        <a href="#insights">數據洞察</a>
+        <a href="#contact">技術與聯絡</a>
+        <a class="nav-github" href="https://github.com/vanyachen88-rgb/finalproj" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
     </div>
   </header>
   <main id="main">
@@ -87,13 +98,34 @@
       </div>
     </section>
 
-    <section class="outcomes-section section-pad" id="outcomes" aria-labelledby="outcomes-title">
+    <section class="insights-section section-pad" id="insights" aria-labelledby="insights-title">
       <div class="shell">
-        <div class="section-heading outcome-heading"><div><p class="eyebrow dark">02 / BUSINESS IMPACT</p><h2 id="outcomes-title">從指標走向商業問題</h2></div><p>依行銷、銷售與營運切換分析視角。下方數字為模擬資料的專題結果，不代表真實企業績效。</p></div>
-        <div class="outcome-workspace">
-          <div class="view-tabs" role="tablist" aria-label="分析領域" id="domain-tabs"></div>
-          <div class="domain-content" id="domain-content" role="tabpanel" tabindex="0" aria-live="polite"></div>
+        <div class="section-heading"><div><p class="eyebrow dark">02 / DATA INSIGHTS</p><h2 id="insights-title">從數據找到可行動的洞察</h2></div><p>以 Dashboard 同一份資料重新計算，整理成行銷、營收、設備、客群與資料品質五個面向。數字皆為模擬資料，不代表真實企業績效。</p></div>
+
+        <!-- 重點發現：直接寫在 HTML，搜尋引擎與未啟用 JavaScript 的讀者也看得到 -->
+        <div class="takeaways" aria-label="重點發現">
+          <article class="takeaway"><span class="takeaway-num">69% → 27%</span><h3>預算占比 vs Leads 占比</h3><p>LINE、合作通路、官網使用約 69% 預算，只帶來約 27% 的 Leads。</p><a href="#insights-marketing">看行銷管道分析 →</a></article>
+          <article class="takeaway"><span class="takeaway-num">9.5×</span><h3>LINE 的轉換成本是 Google Ads 的倍數</h3><p>90 天歸因下各管道轉換率接近，差距主要在成本；合作通路約 20.7 倍。</p><a href="#insights-marketing">看成本比較 →</a></article>
+          <article class="takeaway"><span class="takeaway-num">75.5%</span><h3>維修成本來自故障與零件更換</h3><p>定期保養次數最多，卻只占維修成本約 16.7%。</p><a href="#insights-operations">看設備與維修 →</a></article>
+          <article class="takeaway"><span class="takeaway-num">4.2×</span><h3>2026 Q3 營收對 2025 Q3</h3><p>成長來自租賃量累積，而不是漲價；部分日期為模擬的未來排程。</p><a href="#insights-revenue">看營收成長 →</a></article>
         </div>
+
+        <div class="outcome-workspace insight-workspace">
+          <div class="view-tabs" role="tablist" aria-label="分析面向" id="insight-tabs"></div>
+          <div class="insight-panel" id="insight-panel" role="tabpanel" tabindex="0" aria-live="polite"></div>
+        </div>
+        <noscript><p class="method-note">此區塊的圖表需要啟用 JavaScript；上方四項重點發現仍可閱讀。完整分析請見 <a href="https://vanyasproj.streamlit.app/">Streamlit Dashboard</a>。</p></noscript>
+
+        <div class="method-note">
+          <strong>方法說明</strong>
+          <p>所有數字依 <a href="https://github.com/vanyachen88-rgb/finalproj" target="_blank" rel="noopener noreferrer">finalproj</a> 專案 data/clean 的八張資料表重新計算（以 2026-10-08 為基準日）。「專題定義」的轉換率與 Dashboard 一致；「90 天歸因」是為了比較管道成本而額外加入的口徑。營收以已付款（Paid）金額計算，且資料含模擬的未來日期，請以趨勢方向而非絕對數字解讀。</p>
+          <a class="text-link dark" href="https://vanyasproj.streamlit.app/" target="_blank" rel="noopener noreferrer">對照互動式 Dashboard ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" aria-label="技術與聯絡">
+      <div class="shell">
         <div class="bottom-grid">
           <div class="stack-panel"><div class="panel-label">TOOLS & TECHNOLOGIES</div><h3>讓資料可靠抵達儀表板。</h3><div class="stack-groups"><div><span>資料處理</span><strong>Python · Pandas · NumPy</strong></div><div><span>資料品質</span><strong>型別對應 · 缺值 · 重複值檢查</strong></div><div><span>儲存與查詢</span><strong>Google Cloud SQL · SQL Server · SQLAlchemy</strong></div><div><span>互動呈現</span><strong>Streamlit · Plotly · GitHub</strong></div></div></div>
           <!-- 聯絡資訊可在此補上 Email 或 LinkedIn -->
