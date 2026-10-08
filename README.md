@@ -1,12 +1,10 @@
 # 資料分析專題作品集網站
 
-純 HTML、CSS、JavaScript 製作，沒有套件安裝或建置步驟。網頁呈現 `finalproj` 的 ETL、資料驗證、Google Cloud SQL（SQL Server）、ERD、Streamlit 分析成果，以及依同一份資料重新計算的數據洞察。
-
-網站展示：https://vanyachen88-rgb.github.io/finalproj-pages/
+純 HTML、CSS、JavaScript 製作，沒有套件安裝或建置步驟。網頁呈現 `finalproj` 的 ETL、資料驗證、Google Cloud SQL（SQL Server）、ERD 與 Streamlit 分析成果。
 
 ## 修改位置
 
-| 檔案 | 內容 |
+| 想修改的內容 | 檔案 |
 |---|---|
 | `index.html` | 首頁標題、摘要、數字、四項重點發現（靜態文字，利於 SEO）、方法說明、聯絡區 |
 | `content.js` | 五段流程、八張資料表、**五個數據洞察分頁**（文字、數字、圖表資料） |
